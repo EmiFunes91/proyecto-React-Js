@@ -1,12 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import ResponsiveAppBar from './components/Navbar/NavBar';
+
 
 function App() {
   return (
+    
     <div className="App">
-     <h1>Hola Mundo! Ecommerce2022</h1>
+      <ResponsiveAppBar/>
     </div>
+    
   );
 }
 
+
+
 export default App;
+
