@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,cAAc,CAAC;EACb,OAAO,EAAC,IAAI;EACZ,eAAe,EAAE,MAAM;EACvB,WAAW,EAAE,MAAM;CAEpB",
+    "sources": [
+        "CardList.scss"
+    ],
+    "names": [],
+    "file": "CardList.css"
+}

@@ -1,0 +1,32 @@
+.card-item img {
+  max-width: 100%;
+  width: 100%;
+  height: 20rem;
+}
+
+.card-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.card-item p {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.card-item span {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.card-item button {
+  background: black;
+}
+/*# sourceMappingURL=Card.css.map */
