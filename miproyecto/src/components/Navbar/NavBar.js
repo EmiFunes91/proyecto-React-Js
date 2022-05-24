@@ -4,7 +4,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import './NavBar.scss'
 
 
-const pages = ["Hombre", "Mujer", "Niños"];
+const pages = ['Hombre', 'Mujer', 'Niños', 'Marcas'];
 const settings = ["Productos en el carrito", "Salir"];
 
 const ResponsiveAppBar = () => {
@@ -45,8 +45,9 @@ const ResponsiveAppBar = () => {
               textDecoration: "none"
             }}
           >
-            EFSports
+            EFSporting
           </Typography>
+          
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -99,7 +100,7 @@ const ResponsiveAppBar = () => {
               textDecoration: "none"
             }}
           >
-            EFSports
+            
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
