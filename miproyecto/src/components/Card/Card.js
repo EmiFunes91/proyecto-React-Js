@@ -1,21 +1,20 @@
-import './Card.scss'
+import './Card.css'
 import { useState } from 'react'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { Button } from '@mui/material';
-
 
 const CardItem = ({ image, title, price, stock }) => {
     const [count, setCount] = useState(0)
 
     const addCount = () => {
         console.log("stock: ", stock)
-        setCount(count + 1)
+        setCount(prev => prev + 1 )
     }
 
     const removeCount = () => {
         if (count > 0) {
-            setCount(count - 1)
+            setCount(prev => prev - 1 )
         }
     }
 
@@ -28,15 +27,15 @@ const CardItem = ({ image, title, price, stock }) => {
                         <img alt='' src={`${image}`} />
                     </div>
                     <div className='card-info-data'>
-                    <p>{title}</p>
-                    <span>$ {price}</span>
+                        <p>{title}</p>
+                        <span>$ {price}</span>
                     </div>
                     <div className='count-item'>
                         <Button onClick={removeCount}>-</Button>
                         <p>{count}</p>
                         <Button onClick={addCount}>+</Button>
                     </div>
-                    <Button variant={'contained'} className="card-item-button">Agregar</Button>
+                    <Button variant={'contained'} className="card-item-button">Agregar al carrito</Button>
                 </div>
             </CardContent>
         </Card>

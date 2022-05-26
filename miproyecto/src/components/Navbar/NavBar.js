@@ -1,13 +1,12 @@
 import * as React from "react";
 import {MenuItem, AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, Button, Tooltip} from "@mui/material";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import './NavBar.scss'
-
+import './NavBar.css'
+import CartWidget from '../CartWidget/CartWidget';
 
 const pages = ['Hombre', 'Mujer', 'Niños', 'Marcas'];
 const settings = ["Productos en el carrito", "Salir"];
 
-const ResponsiveAppBar = () => {
+const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -117,7 +116,7 @@ const ResponsiveAppBar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Mi Carrito">
               <IconButton color="inherit" onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <ShoppingCartIcon />
+                
               </IconButton>
             </Tooltip>
             <Menu
@@ -143,9 +142,10 @@ const ResponsiveAppBar = () => {
               ))}
             </Menu>
           </Box>
+          <CartWidget />
         </Toolbar>
       </Container>
     </AppBar>
   );
 };
-export default ResponsiveAppBar;
+export default Navbar;
