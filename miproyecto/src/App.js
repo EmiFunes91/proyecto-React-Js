@@ -1,46 +1,31 @@
 import React from 'react';
 import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Navbar from './components/Navbar/NavBar'
-import CardList from './components/CardList/CardList';
-import productos from './utils/productsMock'
-import { useState, useEffect } from 'react';
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import Home from './pages/Home';
+import Hombre from './pages/Hombre'
+import Mujer from './pages/Mujer';
+import Niños from './pages/Niños';
+import Marcas from './pages/Marcas';
+import Contacto from './pages/Contacto';
 
 function App() {
-  const [setProducts] = useState([])
-
-  useEffect(() => {
-    getProducts()
-      .then((response) => {
-        setProducts(response)
-      })
-      .catch((err) => {
-        console.log("Catch: Fallo la llamada.", err)
-      })
-      .finally(() => {
-        // console.log("Finally: termino la promesa")
-      })
-  }, [])
-
-  const getProducts = () => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(productos)
-      }, 4000)
-    })
-  }
-
+  
   return (
-    
+
     <div className='App'>
+      <BrowserRouter>
       <Navbar />
-
-      <div className='general-container'>
-        <CardList title={'Productos Recomendados'} products={productos} />
-
-        <ItemDetailContainer />
-      </div>
-    </div>
+        <Routes>
+          <Route path='/' element={<Home/>} />
+          <Route path='/' element={<Hombre/>} />
+          <Route path='/' element={<Mujer/>} />
+          <Route path='/' element={<Niños/>} />
+          <Route path='/' element={<Marcas/>} />
+          <Route path='/' element={<Contacto/>} />
+        </Routes>
+      </BrowserRouter>
+    </div >
 
   );
 }

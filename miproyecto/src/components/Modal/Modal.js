@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import Dialog from '@mui/material/Dialog';
-import DialogContent from '@mui/material/DialogContent';
+import { Dialog, DialogContent } from '@mui/material/Dialog';
 
 const Modal = ({handleClose, open, children}) => {
     const [count, setCount] = useState(0)

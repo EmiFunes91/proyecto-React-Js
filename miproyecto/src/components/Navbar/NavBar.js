@@ -2,8 +2,9 @@ import * as React from "react";
 import {MenuItem, AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, Button, Tooltip} from "@mui/material";
 import './NavBar.css'
 import CartWidget from '../CartWidget/CartWidget';
+import { Link } from 'react-router-dom'
 
-const pages = ['Hombre', 'Mujer', 'Niños', 'Marcas'];
+const pages = ['Home', 'Hombre', 'Mujer', 'Niños', 'Marcas', 'Contacto'];
 const settings = ["Productos en el carrito", "Salir"];
 
 const Navbar = () => {
@@ -33,7 +34,6 @@ const Navbar = () => {
             variant="h5"
             noWrap
             component="a"
-            href="/"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },

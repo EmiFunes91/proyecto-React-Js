@@ -1,13 +1,14 @@
 import { useEffect, useState} from "react"
 import ItemDetail from "../ItemDetail/ItemDetail"
+import productos from '../../utils/productsMock'
 
 const ItemDetailContainer = () => {
-    const [products , setProduct] = useState({})
+    const [product , setProduct] = useState({})
     
     const getItem = () => {
         return new Promise( (resolve, reject) => {
             setTimeout(() => {
-                resolve(products)
+                resolve(productos)
             }, 2000)
         })
     }
@@ -22,7 +23,7 @@ const ItemDetailContainer = () => {
 
     return(
         <>
-            <ItemDetail data={products}/>
+            <ItemDetail data={product}/>
             
         </>
     )
