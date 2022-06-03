@@ -22,14 +22,13 @@ function Home() {
   const getProducts = () => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(productos)
+        resolve(products)
       }, 4000)
     })
   }
   return (
     <div className='general-container'>
       <CardList title={'Productos Recomendados'} products={productos} />
-
       <ItemDetailContainer />
     </div>
   );

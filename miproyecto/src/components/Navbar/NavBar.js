@@ -4,7 +4,7 @@ import './NavBar.css'
 import CartWidget from '../CartWidget/CartWidget';
 import { Link } from 'react-router-dom'
 
-const pages = ['Home', 'Hombre', 'Mujer', 'Niños', 'Marcas', 'Contacto'];
+const pages = ['Home', 'Hombre', 'Mujer', 'Marcas', 'Contacto'];
 const settings = ["Productos en el carrito", "Salir"];
 
 const Navbar = () => {
@@ -77,7 +77,9 @@ const Navbar = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center">
+                    <Link style={{textDecoration: 'none', color:'white'}} to={`/${page}`}>{page}</Link>
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -108,7 +110,7 @@ const Navbar = () => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "inherit", display: "block" }}
               >
-                {page}
+                <Link style={{textDecoration: 'none', color:'white'}} to={`/${page}`}>{page}</Link>
               </Button>
             ))}
           </Box>

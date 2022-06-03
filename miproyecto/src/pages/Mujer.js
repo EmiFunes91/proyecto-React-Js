@@ -1,3 +1,5 @@
+import React from "react";
+
 const Mujer = () => {
   return(
       <div>PAGINA MUJER</div>
