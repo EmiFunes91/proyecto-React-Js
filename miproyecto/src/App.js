@@ -5,7 +5,7 @@ import Navbar from './components/Navbar/NavBar'
 import Home from './pages/Home';
 import Hombre from './pages/Hombre'
 import Mujer from './pages/Mujer';
-import Marcas from './pages/Marcas';
+import Productos from './pages/Productos';
 import Contacto from './pages/Contacto';
 
 function App() {
@@ -16,13 +16,13 @@ function App() {
 
       <Navbar />
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/:id' element={<Home />} />
         <Route path='Hombre' element={<Hombre />} />
         <Route path='Mujer' element={<Mujer />} />
-        <Route path='Marcas' element={<Marcas />} />
+        <Route path='Productos' element={<Productos />} />
         <Route path='Contacto' element={<Contacto />} />
       </Routes>
-      <Home />
+      
 
 
     </div >

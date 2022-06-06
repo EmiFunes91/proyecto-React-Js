@@ -1,8 +1,8 @@
 import React from "react";
 
-const Marcas = () => {
+const Productos = () => {
   return(
       <div>PAGINA MARCAS</div>
   )
 }
-export default Marcas
+export default Productos
