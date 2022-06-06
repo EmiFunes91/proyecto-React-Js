@@ -2,7 +2,7 @@ import React from "react";
 
 const Productos = () => {
   return(
-      <div>PAGINA MARCAS</div>
+      <div>PAGINA PRODUCTOS</div>
   )
 }
 export default Productos

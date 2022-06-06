@@ -22,8 +22,6 @@ function App() {
         <Route path='Productos' element={<Productos />} />
         <Route path='Contacto' element={<Contacto />} />
       </Routes>
-      
-
 
     </div >
 
