@@ -4,10 +4,9 @@ import CardContent from '@mui/material/CardContent';
 import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-
 const CardItem = ({ image, title, price, stock, id }) => {
 
-    
+    console.log("producto id:", id)
     return (
 
         <Card sx={{ maxWidth: 375 }}>

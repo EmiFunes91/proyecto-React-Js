@@ -6,7 +6,7 @@ import Home from './pages/Home';
 import Hombre from './pages/Hombre'
 import Mujer from './pages/Mujer';
 import Productos from './pages/Productos';
-import Contacto from './pages/Contacto';
+import Detalles from './pages/Detalles';
 
 function App() {
 
@@ -20,7 +20,7 @@ function App() {
         <Route path='Hombre' element={<Hombre />} />
         <Route path='Mujer' element={<Mujer />} />
         <Route path='Productos' element={<Productos />} />
-        <Route path='Contacto' element={<Contacto />} />
+        <Route path='Detalles' element={<Detalles />} />
       </Routes>
 
     </div >

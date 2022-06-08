@@ -34,5 +34,15 @@ const productos = [
   }
 ]
 
+const producto = {
+  title: 'Zapatilla Reebok Nano',
+  price: 17.999,
+  image: 'ReebokNano.png',
+  description: '',
+  stock: 3,
+  id: 1
+}
+
 
 export default productos
+export { producto }

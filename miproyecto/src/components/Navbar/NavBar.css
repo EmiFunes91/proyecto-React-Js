@@ -7,3 +7,7 @@
 display: flex;
 justify-content: center;
 }
+
+.cart-container-icon > svg {
+  color:white;
+}

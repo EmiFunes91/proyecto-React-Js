@@ -4,7 +4,7 @@ import './NavBar.css'
 import CartWidget from '../CartWidget/CartWidget';
 import { Link } from 'react-router-dom'
 
-const pages = ['Home', 'Hombre', 'Mujer', 'Productos', 'Contacto'];
+const pages = ['Home', 'Hombre', 'Mujer', 'Productos', 'Detalle'];
 const settings = ["Productos en el carrito", "Salir"];
 
 const Navbar = () => {
