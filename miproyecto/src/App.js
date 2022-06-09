@@ -1,32 +1,33 @@
-import React from 'react';
 import './App.css';
-import { Routes, Route } from "react-router-dom"
-import Navbar from './components/Navbar/NavBar'
-import Home from './pages/Home';
-import Hombre from './pages/Hombre'
-import Mujer from './pages/Mujer';
-import Productos from './pages/Productos';
-import Detalles from './pages/Detalles';
+import ResponsiveAppBar from './components/NavBar/NavBar';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+const customTheme = createTheme({
+  palette: {
+    primary: {
+      main: '#d50000'
+    },
+    secondary: {
+      main: '#212121'
+    }
+  }
+});
 
 function App() {
 
   return (
 
-    <div className='App'>
+    <div className="App">
+      <ThemeProvider theme={customTheme}>
+        <ResponsiveAppBar />
+        <h1>EFSport | Tu Tienda Online</h1>
+        <ItemDetailContainer />
+        <ItemListContainer />
 
-      <Navbar />
-      <Routes>
-        <Route path='/:id' element={<Home />} />
-        <Route path='Hombre' element={<Hombre />} />
-        <Route path='Mujer' element={<Mujer />} />
-        <Route path='Productos' element={<Productos />} />
-        <Route path='Detalles' element={<Detalles />} />
-      </Routes>
-
-    </div >
-
+      </ThemeProvider>
+    </div>
   );
 }
 
 export default App;
-

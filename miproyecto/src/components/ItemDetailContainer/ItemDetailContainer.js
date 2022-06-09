@@ -1,32 +1,32 @@
-import { useEffect, useState } from "react"
-import ItemDetail from "../ItemDetail/ItemDetail"
-import productos from '../../utils/productsMock'
-import { useParams, useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react";
+import { product } from '../../utils/productsMock.js';
+import ItemDetail from '../ItemDetail/ItemDetail.js';
+
 
 const ItemDetailContainer = () => {
-    const { id } = useParams()
-    const navigate = useNavigate()
-    const [product , setProduct] = useState({})
-
+    const [productState, setProductState] = useState({});
+    const getProduct = () => {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(product);
+            }, 2000);
+        });
+    };
     useEffect(() => {
-        
-        console.log("productFilter: ", productFilter)
-        if(productFilter === undefined){
-            navigate('/notFound')
-        }else {
-            setProduct(productFilter)
-        }
-    }, [id])
+        getProduct()
+        .then((response) => {
 
-    const productFilter = productos.find( (product) => {
-        return product.id == id
-    })
+            setProductState(response);
+        })
+        .catch((error) => {
+            console.log('ERROR');
+        })
 
-    return(
-        <>
-            <ItemDetail data={product}/>
-        </>
+    }, [])
+
+    return (
+        <ItemDetail product={productState}/>
     )
 }
 
-export default ItemDetailContainer
+export default ItemDetailContainer;
