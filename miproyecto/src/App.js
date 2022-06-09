@@ -21,7 +21,7 @@ function App() {
     <div className="App">
       <ThemeProvider theme={customTheme}>
         <ResponsiveAppBar />
-        <h1>EFSport | Tu Tienda Online</h1>
+        <h1>EFSports | Tu Tienda Online</h1>
         <ItemDetailContainer />
         <ItemListContainer />
 
