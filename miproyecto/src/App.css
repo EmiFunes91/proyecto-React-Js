@@ -53,3 +53,7 @@ h1,h2,h3,h4,p,span,a,input {
 .swiper-button-next, .swiper-button-prev {
   color: black !important; 
 }
+
+.css-1p1ubwe-MuiPaper-root-MuiAppBar-root  {
+  background-color: red!important;
+  } 

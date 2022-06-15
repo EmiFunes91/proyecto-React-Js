@@ -1,15 +1,20 @@
 import './App.css';
-import ResponsiveAppBar from './components/NavBar/NavBar';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import NavBar from './components/NavBar/NavBar.js';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import NotFound from './pages/NotFound';
+import CartContainer from './components/CartContainer/CartContainer';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import { CartContextProvider } from './context/CartContext';
+
 const customTheme = createTheme({
   palette: {
     primary: {
-      main: '#d50000'
+      main: '#64b5f6'
     },
     secondary: {
-      main: '#212121'
+      main: '#1a237e'
     }
   }
 });
@@ -19,13 +24,20 @@ function App() {
   return (
 
     <div className="App">
-      <ThemeProvider theme={customTheme}>
-        <ResponsiveAppBar />
-        <h1>EFSports | Tu Tienda Online</h1>
-        <ItemDetailContainer />
-        <ItemListContainer />
-
-      </ThemeProvider>
+      <CartContextProvider>
+        <ThemeProvider theme={customTheme}>
+          <BrowserRouter>
+            <NavBar />
+            <Routes>
+              <Route path='/item/:id' element={<ItemDetailContainer />}  />
+              <Route path='/categorias/:category' element={<ItemListContainer />} />
+              <Route path='/cart' element={<CartContainer />} />
+              <Route path='/' element={<ItemListContainer />} />
+              <Route path='*' element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </ThemeProvider>
+      </CartContextProvider>
     </div>
   );
 }

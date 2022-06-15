@@ -1,43 +1,74 @@
-import ItemList from '../ItemList/ItemList';
-import { useState, useEffect } from 'react';
-import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
-import products from '../../utils/productsMock';
-
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom";
+import ItemList from "../ItemList/ItemList";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
+import { collection, doc, getDocs, query, where, getDoc } from "firebase/firestore";
+import db from "../../utils/firebaseConfig";
 
 const ItemListContainer = () => {
     const [productsState, setProductsState] = useState([]);
-    const [displaySpinner, setDisplaySpinner] = useState({ display: 'flex' })
+    const [SpinnerState, setSpinnerState] = useState({ display: 'flex' })
+    const { category } = useParams();
 
-    const getProducts = () => {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(products);
-            }, 5000);
-        });
-    };
-
+    let title = '';
+    let subtitle = '';
+    (category === 'productos') && (title = 'Productos');
+    (category === 'hombre') && (title = 'Hombre');
+    (category === 'mujer') && (title = 'Mujer');
+    (category === undefined) && (title = 'EFSports | Tu Tienda de Deportes') && (subtitle = 'Catálogo de Productos')
     useEffect(() => {
-        getProducts()
-            .then((res) => {
-                setProductsState(res);
-            })
-            .catch((err) => {
-                console.log('ERROR');
-            })
-            .finally(() => {
-                setDisplaySpinner({display: 'none'})
-            })
-    }, [])
-    return (
+        setProductsState([]);
+        setSpinnerState({ display: 'flex' });
+        if (category === undefined) {
+            getProductsFromFireStore()
+                .then((res) => {
+                    setProductsState(res)
+                })
+                .catch(() => {
+                    console.log('ERROR');
+                })
+                .finally(() => {
+                    setSpinnerState({ display: 'none' })
+                })
+        } else {
+            getProductsCategory(category)
+                .then((res) => {
+                    setProductsState(res)
+                })
+                .finally(() => {
+                    setSpinnerState({ display: 'none' })
+                })
+        }
+    }, [category])
 
+    const getProductsFromFireStore = async () => {
+        const productSnapshot = await getDocs(collection(db, 'products'));
+        const productList = productSnapshot.docs.map((doc) => {
+            let product = doc.data();
+            product.id = doc.id;
+            return product;
+        })
+
+        return (productList);
+    }
+    const getProductsCategory = async (category) => {
+        const q = query(collection(db, 'products'), where('category', '==', category))
+        const categorySnapshot = await getDocs(q)
+        const categoryList = categorySnapshot.docs.map((doc) => {
+            let product = doc.data();
+            product.id = doc.id;
+            return product;
+        })
+        return categoryList;
+    }
+    return (
         <>
-            {/*productsState[0] != null && <MainItem prop={productsState[0]} />*/}
+            <h1>{title}</h1>
+            <h2>{subtitle}</h2>
+            <LoadingSpinner display={SpinnerState} />
             <ItemList items={productsState} />
-            <LoadingSpinner display={displaySpinner}/>
         </>
     )
-
 }
-
 
 export default ItemListContainer;
