@@ -1,6 +1,7 @@
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Item from '../Item/Item';
+import './ItemList.scss'
 
 const ItemList = ({ items }) => {
     return (
