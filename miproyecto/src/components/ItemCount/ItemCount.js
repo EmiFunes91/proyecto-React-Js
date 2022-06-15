@@ -3,8 +3,8 @@ import './ItemCount.scss';
 import { useState } from 'react';
 import AddToCartBtn from '../../components/AddToCartBtn/AddToCartBtn.js'
 
-const ItemCount = ({product}) => {
-    const { name, price, stock } = product;
+const ItemCount = ({product, setShowButton}) => {
+    const { stock } = product;
     const [count, setCount] = useState(1);
     const addCount = () => {
         stock > count && setCount(count + 1);
@@ -20,7 +20,7 @@ const ItemCount = ({product}) => {
             <Button size="small" variant="outlined" onClick={addCount}>+</Button>
             
         </div>
-        <AddToCartBtn name={name} price={price} count={count} />
+        <AddToCartBtn product={product} count={count} />
         </>
     );
 }
