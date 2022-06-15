@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
+import './AddToCartBtn.scss'
 
 
 
@@ -21,7 +22,7 @@ const AddToCartBtn = ({ product, count = 1, }) => { // El count = 1, está porqu
     }
     return (
         <>
-            <Button onClick={() => {
+            <Button className='styleBtn' onClick={() => {
                 addItem(product, count, setOpen, setOpenFail);
             }
             }
