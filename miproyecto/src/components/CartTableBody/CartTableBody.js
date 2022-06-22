@@ -62,8 +62,6 @@ const CartTableBody = () => {
                 )
             })}
             <StyledTableRow>
-                <StyledTableCell />
-                <StyledTableCell />
                 <StyledTableCell align="right">TOTAL DE TU COMPRA:</StyledTableCell>
                 <StyledTableCell align="right">$ {cartPrice} </StyledTableCell>
                 <StyledTableCell><CheckoutButton /></StyledTableCell>
