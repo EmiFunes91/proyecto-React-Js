@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Button } from "@mui/material";
+import { Button, Container } from "@mui/material";
 
 const NotFound = () => {
     return (
@@ -7,11 +7,13 @@ const NotFound = () => {
             <h1>ERROR 404 - Página no encontrada</h1>
             <h2>Ooooops... No encontramos la página que buscabas</h2>
             <Link style={{ textDecoration: 'none', color: 'inherit' }} to="/">
-                <Button color="secondary" variant="contained" sx={{marginBottom: '20px'}}>
+                <Button color="secondary" variant="contained" sx={{ marginBottom: '20px' }}>
                     Volver al Inicio
                 </Button>
             </Link>
-
+            <Container maxWidth='s' >
+                <img src="/group-of-diverse-athletes-sitting-together.jpg" alt='Imágen Deporte' />
+            </Container>
         </>
     )
 }

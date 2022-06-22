@@ -15,14 +15,14 @@ import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
 
 const NavBar = () => {
-  const {prodsInCart} = useContext(CartContext)
+  const { prodsInCart } = useContext(CartContext)
   return (
     <AppBar className='NavBar' position="sticky">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Logo />
           <Brand />
-            <HamburgerMenu />
+          <HamburgerMenu />
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             <DesktopNavButton link={'/categorias/productos'}>
               Productos
@@ -32,6 +32,9 @@ const NavBar = () => {
             </DesktopNavButton>
             <DesktopNavButton link={'/categorias/mujer'}>
               Mujer
+            </DesktopNavButton>
+            <DesktopNavButton link={'/ordenes'}>
+              Mis Órdenes
             </DesktopNavButton>
           </Box>
           {(prodsInCart > 0) && (<Link to='/cart'><CartWidget /></Link>)}
