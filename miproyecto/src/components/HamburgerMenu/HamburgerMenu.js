@@ -1,7 +1,9 @@
+// React and react router imports
 import * as React from 'react';
+import { Link } from "react-router-dom";
+// MUI imports
 import Menu from '@mui/material/Menu';
 import { MenuItem } from "@mui/material";
-import { Link } from "react-router-dom";
 import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
 import Box from '@mui/material/Box';
@@ -47,7 +49,7 @@ const HamburgerMenu = () => {
             >
 
                 <MenuItem onClick={handleCloseNavMenu}>
-                    <Link style={{ textDecoration: 'none', color: 'inherit' }} to="/categorias/productos">
+                    <Link style={{ textDecoration: 'none', color: 'inherit' }} to="/categorias/prodcutos">
                         <Typography textAlign="center">Productos</Typography>
                     </Link>
                 </MenuItem>

@@ -1,9 +1,13 @@
+// React and react-router-dom Imports
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
+// Site components imports
 import ItemList from "../ItemList/ItemList";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
-import { collection, getDocs, query, where } from "firebase/firestore";
-import db from "../../utils/firebaseConfig";
+import Carousel from "../Carousel/Carousel";
+import './ItemListContainer.scss';
+// Firebase imports
+import { getProductsCategory, getProductsFromFireStore } from "../../utils/firebaseController";
 
 const ItemListContainer = () => {
     const [productsState, setProductsState] = useState([]);
@@ -12,10 +16,10 @@ const ItemListContainer = () => {
 
     let title = '';
     let subtitle = '';
-    (category === 'productos') && (title = 'Productos');
-    (category === 'hombre') && (title = 'Hombre');
-    (category === 'mujer') && (title = 'Mujer');
-    (category === undefined) && (title = 'EFSports | Tu Tienda de Deportes') && (subtitle = 'Catálogo de Productos')
+    (category === 'camaras') && (title = 'Cámaras de Fotos');
+    (category === 'lentes') && (title = 'Lentes');
+    (category === 'accesorios') && (title = 'Accesorios');
+    (category === undefined) && (title = 'Sheipeg | Tu Tienda de Fotografía') && (subtitle = 'Catálogo de Productos')
     useEffect(() => {
         setProductsState([]);
         setSpinnerState({ display: 'flex' });
@@ -41,28 +45,9 @@ const ItemListContainer = () => {
         }
     }, [category])
 
-    const getProductsFromFireStore = async () => {
-        const productSnapshot = await getDocs(collection(db, 'products'));
-        const productList = productSnapshot.docs.map((doc) => {
-            let product = doc.data();
-            product.id = doc.id;
-            return product;
-        })
-
-        return (productList);
-    }
-    const getProductsCategory = async (category) => {
-        const q = query(collection(db, 'products'), where('category', '==', category))
-        const categorySnapshot = await getDocs(q)
-        const categoryList = categorySnapshot.docs.map((doc) => {
-            let product = doc.data();
-            product.id = doc.id;
-            return product;
-        })
-        return categoryList;
-    }
     return (
-        <>
+        <>  
+            <Carousel />
             <h1>{title}</h1>
             <h2>{subtitle}</h2>
             <LoadingSpinner display={SpinnerState} />

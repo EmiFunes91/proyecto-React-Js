@@ -1,13 +1,17 @@
+// React and React router imports
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// MUI imports
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+// Site components imports
 import './App.css';
 import NavBar from './components/NavBar/NavBar.js';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NotFound from './pages/NotFound';
 import CartContainer from './components/CartContainer/CartContainer';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import { CartContextProvider } from './context/CartContext';
 import OrdersContainer from './components/OrdersContainer/OrdersContainer';
+import Carousel from './components/Carousel/Carousel';
 
 const customTheme = createTheme({
   palette: {
@@ -30,6 +34,7 @@ function App() {
           <BrowserRouter>
             <NavBar />
             <Routes>
+              <Route path='/carousel' element={<Carousel />} />
               <Route path='/item/:id' element={<ItemDetailContainer />}  />
               <Route path='/categorias/:category' element={<ItemListContainer />} />
               <Route path='/ordenes' element={<OrdersContainer />}/>

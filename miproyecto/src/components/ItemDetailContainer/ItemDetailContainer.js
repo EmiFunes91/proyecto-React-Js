@@ -2,8 +2,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 // Site components imports
-import ItemDetail from '../ItemDetail/ItemDetail';
-import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
+import ItemDetail from '../ItemDetail/ItemDetail.js';
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.js";
 // Firebase imports
 import { getProductFromFirebase } from "../../utils/firebaseController";
 
