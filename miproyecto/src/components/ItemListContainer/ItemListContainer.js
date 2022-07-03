@@ -1,59 +1,43 @@
-// React and react-router-dom Imports
-import { useEffect, useState } from "react"
+// React imports
+import { useState } from "react";
 import { useParams } from "react-router-dom";
+// MUI imports
+import { Container } from "@mui/material";
 // Site components imports
 import ItemList from "../ItemList/ItemList";
-import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import Carousel from "../Carousel/Carousel";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
+import Filter from "../Filter/Filter";
 import './ItemListContainer.scss';
-// Firebase imports
-import { getProductsCategory, getProductsFromFireStore } from "../../utils/firebaseController";
+
 
 const ItemListContainer = () => {
-    const [productsState, setProductsState] = useState([]);
-    const [SpinnerState, setSpinnerState] = useState({ display: 'flex' })
-    const { category } = useParams();
-
+    const { category } = useParams()
     let title = '';
-    let subtitle = '';
     (category === 'camaras') && (title = 'Cámaras de Fotos');
     (category === 'lentes') && (title = 'Lentes');
     (category === 'accesorios') && (title = 'Accesorios');
-    (category === undefined) && (title = 'Sheipeg | Tu Tienda de Fotografía') && (subtitle = 'Catálogo de Productos')
-    useEffect(() => {
-        setProductsState([]);
-        setSpinnerState({ display: 'flex' });
-        if (category === undefined) {
-            getProductsFromFireStore()
-                .then((res) => {
-                    setProductsState(res)
-                })
-                .catch(() => {
-                    console.log('ERROR');
-                })
-                .finally(() => {
-                    setSpinnerState({ display: 'none' })
-                })
-        } else {
-            getProductsCategory(category)
-                .then((res) => {
-                    setProductsState(res)
-                })
-                .finally(() => {
-                    setSpinnerState({ display: 'none' })
-                })
-        }
-    }, [category])
-
+    (category === undefined) && (title = 'Catálogo de Productos')
+    const [SpinnerState, setSpinnerState] = useState({ display: 'flex' })
+    const [productsState, setProductsState] = useState([])
+    const showFilter = { display: 'unset'}
+    category == 'accesorios' && (showFilter.display = 'none')
     return (
-        <>  
+        
+        <>
             <Carousel />
             <h1>{title}</h1>
-            <h2>{subtitle}</h2>
+
+                <Container sx={showFilter}>
+                    <form className="filter">
+                        <Filter setProductsState={setProductsState} setSpinnerState={setSpinnerState} />
+                    </form>
+                </Container>
+            
             <LoadingSpinner display={SpinnerState} />
             <ItemList items={productsState} />
         </>
     )
 }
 
-export default ItemListContainer;
+export default ItemListContainer

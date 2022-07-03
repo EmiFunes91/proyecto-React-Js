@@ -1,7 +1,8 @@
-h1 {
-  font-size: 62px;
-}
-
-h2 {
-  font-size: 40px;
+.filter {
+  display: flex;
+  flex-direction: row;
+  position: sticky;
+  top: 100px;
+  justify-content: flex-start;
+  max-width: 1255px;
 }

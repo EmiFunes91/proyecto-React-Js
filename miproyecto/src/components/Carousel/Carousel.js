@@ -1,7 +1,6 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -11,6 +10,7 @@ import './carousel.scss'
 import { Autoplay, Parallax } from "swiper";
 
 const Carousel = () => {
+  const titles = ['EFSPORTS', 'Tu Tienda de Deportes', 'Las Mejores Marcas', 'Desde 1991 en el Rubro']
   return (
     <>
       <Swiper
@@ -30,24 +30,17 @@ const Carousel = () => {
         <div
           slot="container-start"
           className="parallax-bg"
-
           data-swiper-parallax="-15%"
-        ></div>
-        <SwiperSlide>
-          <div className="title" data-swiper-parallax="-300">
-            Las mejores marcas
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="title" data-swiper-parallax="-300">
-            Envíos en 24hs
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="title" data-swiper-parallax="-300">
-            Desde 1991 en el rubro
-          </div>
-        </SwiperSlide>
+        >
+        </div>
+        {titles.map((title, index) => {
+          return (
+            <SwiperSlide key={index}>
+              <div className="title" data-swiper-parallax="-300">
+                {title}
+              </div>
+            </SwiperSlide>)
+        })}
       </Swiper>
     </>
   );

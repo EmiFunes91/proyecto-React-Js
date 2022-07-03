@@ -11,7 +11,7 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import { CartContextProvider } from './context/CartContext';
 import OrdersContainer from './components/OrdersContainer/OrdersContainer';
-import Carousel from './components/Carousel/Carousel';
+import Footer from './components/Footer/Footer';
 
 const customTheme = createTheme({
   palette: {
@@ -32,16 +32,17 @@ function App() {
       <CartContextProvider>
         <ThemeProvider theme={customTheme}>
           <BrowserRouter>
-            <NavBar />
-            <Routes>
-              <Route path='/carousel' element={<Carousel />} />
-              <Route path='/item/:id' element={<ItemDetailContainer />}  />
-              <Route path='/categorias/:category' element={<ItemListContainer />} />
-              <Route path='/ordenes' element={<OrdersContainer />}/>
-              <Route path='/cart' element={<CartContainer />} />
-              <Route path='/' element={<ItemListContainer />} />
-              <Route path='*' element={<NotFound />} />
-            </Routes>
+              <NavBar />
+
+              <Routes>
+                <Route path='/item/:id' element={<ItemDetailContainer />} />
+                <Route path='/categorias/:category' element={<ItemListContainer />} />
+                <Route path='/ordenes' element={<OrdersContainer />} />
+                <Route path='/cart' element={<CartContainer />} />
+                <Route path='/' element={<ItemListContainer />} />
+                <Route path='*' element={<NotFound />} />
+              </Routes>
+              <Footer />
           </BrowserRouter>
         </ThemeProvider>
       </CartContextProvider>

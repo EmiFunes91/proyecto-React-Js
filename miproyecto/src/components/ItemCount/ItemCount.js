@@ -3,7 +3,7 @@ import './ItemCount.scss';
 import { useState } from 'react';
 import AddToCartBtn from '../../components/AddToCartBtn/AddToCartBtn'
 
-const ItemCount = ({product, setShowButton}) => {
+const ItemCount = ({product}) => {
     const { stock } = product;
     const [count, setCount] = useState(1);
     const addCount = () => {

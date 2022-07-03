@@ -3,6 +3,9 @@ img {
   height: auto
 }
 
+.itemDetailName {
+  font-size: 42px;
+}
 p {
   text-align: left;
 }
@@ -16,5 +19,13 @@ h3 {
 }
 
 .controlContainer {
-  padding: 20px 0;
+  padding: 20px;
+}
+
+.itemDetailContainer {
+  margin: 50px auto;
+}
+
+.itemDetailDesc {
+  margin-top: 20px;
 }

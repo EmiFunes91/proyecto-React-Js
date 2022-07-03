@@ -3,12 +3,12 @@ import { useState, useContext } from "react"
 // react-hook-form validation import
 import { useForm } from "react-hook-form"
 // MUI imports
-import { TextField, Button, Container, Box } from "@mui/material"
+import { TextField, Button, Box } from "@mui/material"
 // Site components imports
 import { CartContext } from "../../context/CartContext"
 import './CheckoutForm.scss'
 // Firebase imports
-import { saveOrderInFirestore, updateStockinFirestore } from "../../utils/firebaseController"
+import { saveOrderInFirestore } from "../../utils/firebaseController"
 
 
 const CheckoutForm = ({ setOrderSubmitted, setSpinnerState }) => {
@@ -90,11 +90,10 @@ const CheckoutForm = ({ setOrderSubmitted, setSpinnerState }) => {
                     onChange={formInput}
                 />
                 {errors.phone?.type == 'required' && <small>El campo es requerido</small>}
-                {errors.phone?.type == 'minLength' && <small>Ingresar número completo, incluyendo código de área. Código de área para CABA: 5411</small>}
+                {errors.phone?.type == 'minLength' && <small>Ingresar número completo, sin guiones ni paréntesis</small>}
                 {errors.phone?.type == 'pattern' && <small>Ingresar sólo números</small>}
             </Box>
             <Button type='submit' variant='contained' size='large' color='secondary'>FINALIZAR COMPRA</Button>
-            <Button onClick={() => updateStockinFirestore(order)}>Test update stock</Button>
         </ form>
     )
 }
