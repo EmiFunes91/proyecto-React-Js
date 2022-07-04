@@ -9,14 +9,14 @@ import ItemCount from '../ItemCount/ItemCount';
 
 
 const Item = ({ product }) => {
-    const { name, price, image, stock, id } = product;
+    const { title, price, image, stock, id } = product;
     return (
         <Card>
             <CardContent>
                 <div className="cardItem">
                     <Link style={{ textDecoration: 'none', color: 'inherit' }} to={`/item/${id}`}>
-                        <img src={`${image}`} alt={name} />
-                        <p>{name}</p>
+                        <img src={`${image}`} alt={title} />
+                        <p>{title}</p>
                     </Link>
                     <small>Stock: {stock} u.</small>
                     <span>$ {price}</span>

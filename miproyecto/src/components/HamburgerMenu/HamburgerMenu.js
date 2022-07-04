@@ -49,19 +49,19 @@ const HamburgerMenu = () => {
             >
 
                 <MenuItem onClick={handleCloseNavMenu}>
-                    <Link style={{ textDecoration: 'none', color: 'inherit' }} to="/categorias/prodcutos">
-                        <Typography textAlign="center">Productos</Typography>
-                    </Link>
-                </MenuItem>
-                <MenuItem onClick={handleCloseNavMenu}>
                     <Link style={{ textDecoration: 'none', color: 'inherit' }} to="/categorias/hombre">
                         <Typography textAlign="center">Hombre</Typography>
                     </Link>
                 </MenuItem>
-
                 <MenuItem onClick={handleCloseNavMenu}>
                     <Link style={{ textDecoration: 'none', color: 'inherit' }} to="/categorias/mujer">
                         <Typography textAlign="center">Mujer</Typography>
+                    </Link>
+                </MenuItem>
+
+                <MenuItem onClick={handleCloseNavMenu}>
+                    <Link style={{ textDecoration: 'none', color: 'inherit' }} to="/categorias/accesorios">
+                        <Typography textAlign="center">Accesorios</Typography>
                     </Link>
                 </MenuItem>
             </Menu>

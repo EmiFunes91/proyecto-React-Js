@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 // MUI imports
 import { Button, Menu, FormGroup, FormControlLabel, Checkbox } from "@mui/material"
 import FilterListIcon from '@mui/icons-material/FilterList';
-
+import ItemList from "../ItemList/ItemList";
 
 // Site components imports
 import filterList from "../../utils/filterList"
@@ -19,14 +19,14 @@ const Filter = ({setProductsState, setSpinnerState}) => {
     const filterDisabled = (group, name) => {
         let returnValue = false
         filters.forEach((element) => {
-            (element.property === group && element.value !== name) && (returnValue = true)
+            (element.property == group && element.value != name) && (returnValue = true)
         })
         return returnValue
     }
     const filterChecked = (group, name) => {
         let returnValue = false
         filters.forEach((element) => {
-            (element.property === group && element.value === name) && (returnValue = true)
+            (element.property == group && element.value == name) && (returnValue = true)
         })
         return returnValue
     }

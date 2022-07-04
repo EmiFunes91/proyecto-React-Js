@@ -25,8 +25,8 @@ const ItemDetail = ({ product }) => {
     const { image, name, price, stock, description, mount, category } = product;
     const [compProducts, setCompProducts] = useState([])
 
-    let comp = 'camaras';
-    (category == 'camaras') && (comp = 'lentes')
+    let comp = 'hombre';
+    (category == 'hombre') && (comp = 'accesorios')
     const filters = [{
         property: 'category',
         operator: '==',

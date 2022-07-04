@@ -48,3 +48,7 @@
 .css-1p1ubwe-MuiPaper-root-MuiAppBar-root  {
   background-color: red!important;
   } 
+
+.css-zow5z4-MuiGrid-root {
+  justify-content: space-between;
+  }

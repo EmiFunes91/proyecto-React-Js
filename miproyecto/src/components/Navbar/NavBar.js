@@ -23,11 +23,11 @@ const NavBar = () => {
           <Brand />
             <HamburgerMenu />
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            <DesktopNavButton link={'/categorias/camaras'}>
-              Cámaras
+            <DesktopNavButton link={'/categorias/hombre'}>
+              Hombre
             </DesktopNavButton>
-            <DesktopNavButton link={'/categorias/lentes'}>
-              Lentes
+            <DesktopNavButton link={'/categorias/mujer'}>
+              Mujer
             </DesktopNavButton>
             <DesktopNavButton link={'/categorias/accesorios'}>
               Accesorios

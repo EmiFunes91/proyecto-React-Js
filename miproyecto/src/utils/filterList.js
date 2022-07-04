@@ -5,60 +5,48 @@ const filterList = [
       groupLabel: 'Marcas',
       groupArray: [
           {
-              label: 'Nikon',
-              name: 'nikon',
+              label: 'Nike',
+              name: 'nike',
           },
           {
-              label: 'Canon',
-              name: 'canon',
+              label: 'Adidas',
+              name: 'adidas',
           },
           {
-              label: 'Fujifilm',
-              name: 'fuji',
+              label: 'Reebok',
+              name: 'reebok',
           },
           {
-              label: 'Lensbaby',
-              name: 'lensbaby',
+              label: 'Salomon',
+              name: 'salomon',
           },
           {
-              label: 'Sigma',
-              name: 'sigma',
+              label: 'Puma',
+              name: 'puma',
           }
       ]
   },
   {
       group: 'mount',
       operator: 'array-contains',
-      groupLabel: 'Montura',
+      groupLabel: 'Productos',
       groupArray: [
           {
-              label: 'Canon EF',
+              label: 'Zapatillas',
               name: 'ef',
           },
           {
-              label: 'Canon EF-S',
+              label: 'Remeras',
               name: 'efs',
           },
           {
-              label: 'Canon RF',
+              label: 'Botines',
               name: 'rf',
           },
           {
-              label: 'Fujifilm X',
+              label: 'Camperas',
               name: 'x',
-          },
-          {
-              label: 'Nikon DX',
-              name: 'dx',             
-          },
-          {
-              label: 'Nikon Z',
-              name: 'z',
-          },
-          {
-              label: 'Nikon F',
-              name: 'f',
-          },
+          }
       ]
   }
 
