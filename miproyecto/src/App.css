@@ -35,20 +35,40 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
 
-.swiper-button-next, .swiper-button-prev {
-  color: black !important; 
+.swiper-button-next,
+.swiper-button-prev {
+  color: black !important;
 }
 
-.css-1p1ubwe-MuiPaper-root-MuiAppBar-root  {
-  background-color: red!important;
-  } 
+.css-1p1ubwe-MuiPaper-root-MuiAppBar-root {
+  background-color: red !important;
+}
 
 .css-zow5z4-MuiGrid-root {
   justify-content: space-between;
-  }
+}
+
+.css-1rq994-MuiButtonBase-root-MuiButton-root {
+  background-color: #ff0000 !important;
+  color: white !important;
+}
+
+.css-1xg046u-MuiButtonBase-root-MuiButton-root {
+  background-color: #ff0000 !important;
+}
+
+.css-11rcmwh-MuiButtonBase-root-MuiButton-root {
+  background-color: #ff00002f !important;
+  color: black!important;
+}
+
+.css-1ey55dj-MuiSvgIcon-root {
+  color: black!important;
+}
